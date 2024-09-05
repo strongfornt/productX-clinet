@@ -83,7 +83,7 @@ export default function Register() {
             </div>
             <div>
               <h2 className="text-4xl text-white  font-bold">
-                Furni<span className="text-[#4977EE]">Flex</span>
+                Furni<span className="text-[#1E99F5]">Flex</span>
               </h2>
               <p className="text-[#C8C4C4] font-medium text-sm max-w-sm">
                 Discover a seamless shopping experience with our curated

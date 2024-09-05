@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom/dist";
 
 import profile from "./../../assets/projectLogo/deFaultProfile1.png";
 import { useLocation } from "react-router-dom";
-
+import logo from '../../assets/projectLogo/F.svg'
 import OutsideClickHandler from "react-outside-click-handler";
 import { SiReactrouter } from "react-icons/si";
 
@@ -201,8 +201,11 @@ export default function Nav() {
           }`}
         >
           <div className="navbar-start w-fit ">
-            <a className=" text-2xl font-bold  text-[#3F72AF] ">
-              <span className="text-3xl font-bold">D</span>ine
+            <div className="bg-[#1E99F5] w-fit inline-flex p-2 rounded-full" >
+                <img className="w-4 md:w-16 lg:w-12"  src={logo} alt="" />
+            </div>
+            <a className=" ml-1 text-2xl font-bold  text-[#1E99F5] ">
+             
               <span
                 className={`font-bold ${
                   theme === "light"
@@ -214,8 +217,9 @@ export default function Nav() {
                     : "text-white"
                 }`}
               >
-                Ease
+                Furni
               </span>
+              <span className="text-2xl font-bold">Flex</span>
             </a>
           </div>
 
@@ -371,7 +375,7 @@ export default function Nav() {
                   ) : (
                     <>
                       <Link
-                        to="/joinUs"
+                        to="/login"
                         onClick={() => setMenu(false)}
                         className={`flex px-6  py-1 w-fit mb-4 relative rounded group overflow-hidden font-medium border-b  
                       ${
@@ -394,7 +398,7 @@ export default function Nav() {
                               : "group-hover:text-black"
                           }  `}
                         >
-                          Join-Us
+                          Sign In
                         </span>
                       </Link>
                     </>

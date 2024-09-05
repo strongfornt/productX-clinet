@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 import chair from "../../../assets/authenticationPic/chairMain.png";
 import logo from "../../../assets/projectLogo/F.svg";
@@ -5,9 +6,71 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
+import useContextProvider from "../../../useHooks/useContextProvider";
+import toast from "react-hot-toast";
+import auth from "../../../firebase/firebase.config";
 
 export default function Register() {
   const [showPass, setShowPass] = useState(false);
+  const [isAcceptTerms, setIsAcceptTerms] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const { googleLogin, appleLogin, setUser, createUser, updateUserProfile } =
+    useContextProvider();
+
+  //idp login =============
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = form.firstname.value + " " + form.lastname.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    setIsProcessing(true)
+    setIsAcceptTerms(false)
+    //creating user ====
+    createUser(email, password)
+      .then((users) => {
+        const user = users.user;
+        toast.success("Account created! Welcome!");
+        setIsProcessing(false)
+        form.reset();
+        //update profile==
+        updateUserProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            setUser({ ...user, displayName: name });
+          })
+          .catch(() => {});
+      })
+      .catch(() => {
+          form.reset();
+          setIsProcessing(false)
+        toast.error("User already exist!")
+      });
+
+   
+  };
+
+  //google login =======
+  const handleGoogleLogin = async () => {
+    try {
+      await googleLogin();
+      toast.success("You're in! Welcome back!");
+    } catch (error) {
+        toast.error("Sign-in error. Check connection.");
+    }
+  };
+
+  //apple login ===
+  const handleAppleLogin = async () => {
+    try {
+      await appleLogin();
+    } catch (error) {
+        toast.error('Apple Sign-In is currently unavailable. Please try again later.');
+    }
+  };
+ 
+  
 
   return (
     <>
@@ -16,7 +79,7 @@ export default function Register() {
           className="hidden bg-center bg-cover  bg-no-repeat lg:block flex-1"
           style={{ backgroundImage: `url(${chair})` }}
         >
-          <div className="flex flex-col items-center justify-center text-center h-full" >
+          <div className="flex flex-col items-center justify-center text-center h-full">
             <div className="bg-[#1E99F5] w-fit inline-flex p-4 rounded-full ">
               <img className="" src={logo} alt="logo" />
             </div>
@@ -46,9 +109,7 @@ export default function Register() {
               Signup for purchase your desire products
             </p>
 
-            
-
-            <form className="mt-4 space-y-2">
+            <form onSubmit={handleFormSubmit} className="mt-4 space-y-2">
               {/* name input start ========= */}
               <div className="grid grid-cols-2   gap-2">
                 {/* first name=== */}
@@ -61,7 +122,7 @@ export default function Register() {
                   </label>
                   <input
                     id="firstname"
-                    name="lastname"
+                    name="firstname"
                     className="focus:outline-none"
                     type="text"
                   />
@@ -116,7 +177,10 @@ export default function Register() {
                   placeholder="******"
                 />
                 <button
-                  onClick={() => setShowPass(!showPass)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowPass(!showPass);
+                  }}
                   className="absolute  right-2 top-3 text-[#707070] text-2xl"
                 >
                   {showPass ? <IoMdEye /> : <IoIosEyeOff />}
@@ -124,6 +188,10 @@ export default function Register() {
               </div>
               <div className="flex items-center ">
                 <input
+                onChange={()=>{
+                    setIsAcceptTerms(!isAcceptTerms)
+                }}
+                  checked = {isAcceptTerms}
                   type="checkbox"
                   name="remember"
                   id="remember"
@@ -139,10 +207,21 @@ export default function Register() {
               </div>
 
               <button
+              disabled = {isAcceptTerms !== true }
                 type="submit"
                 className="w-full  px-6 py-3 text-lg font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#000000] rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
               >
-                Signup
+
+                {
+                    isProcessing ?  <div className="flex gap-2 items-center justify-center"  >
+                    <span className="w-6 h-6 border-4 inline-flex border-dashed rounded-full animate-spin border-[#4977EE]"></span>
+                   <span> Processing...</span>
+                    </div> :   <span>
+               Signup
+               </span>
+                }
+               
+             
               </button>
             </form>
 
@@ -161,13 +240,19 @@ export default function Register() {
 
             {/* sign up with google and apple */}
             <div className="grid grid-cols-2 gap-2">
-              <button className="text-sm  font-medium border px-4 py-3 border-[#D9D9D9] rounded-md">
+              <button
+                onClick={handleGoogleLogin}
+                className="text-sm  font-medium border px-4 py-3 border-[#D9D9D9] rounded-md"
+              >
                 <span className="inline-flex align-text-bottom text-xl mr-1 ">
                   <FcGoogle />{" "}
                 </span>{" "}
                 Sign in with Google
               </button>
-              <button className="text-sm font-medium border px-4 py-3 border-[#D9D9D9] rounded-md">
+              <button
+                onClick={handleAppleLogin}
+                className="text-sm font-medium border px-4 py-3 border-[#D9D9D9] rounded-md"
+              >
                 <span className="inline-flex align-text-bottom text-xl mr-1">
                   <BsApple />{" "}
                 </span>{" "}

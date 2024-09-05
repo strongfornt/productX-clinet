@@ -24,14 +24,14 @@ export default function Register() {
     const name = form.firstname.value + " " + form.lastname.value;
     const email = form.email.value;
     const password = form.password.value;
-    setIsProcessing(true)
-    setIsAcceptTerms(false)
+    setIsProcessing(true);
+    setIsAcceptTerms(false);
     //creating user ====
     createUser(email, password)
       .then((users) => {
         const user = users.user;
         toast.success("Account created! Welcome!");
-        setIsProcessing(false)
+        setIsProcessing(false);
         form.reset();
         //update profile==
         updateUserProfile(auth.currentUser, {
@@ -43,12 +43,10 @@ export default function Register() {
           .catch(() => {});
       })
       .catch(() => {
-          form.reset();
-          setIsProcessing(false)
-        toast.error("User already exist!")
+        form.reset();
+        setIsProcessing(false);
+        toast.error("User already exist!");
       });
-
-   
   };
 
   //google login =======
@@ -57,7 +55,7 @@ export default function Register() {
       await googleLogin();
       toast.success("You're in! Welcome back!");
     } catch (error) {
-        toast.error("Sign-in error. Check connection.");
+      toast.error("Sign-in error. Check connection.");
     }
   };
 
@@ -66,11 +64,11 @@ export default function Register() {
     try {
       await appleLogin();
     } catch (error) {
-        toast.error('Apple Sign-In is currently unavailable. Please try again later.');
+      toast.error(
+        "Apple Sign-In is currently unavailable. Please try again later."
+      );
     }
   };
- 
-  
 
   return (
     <>
@@ -174,6 +172,8 @@ export default function Register() {
                   className="focus:outline-none w-full"
                   type={showPass ? "text" : "password"}
                   required
+                  pattern=".{6,}"
+                  title="Password must be at least 6 characters long."
                   placeholder="******"
                 />
                 <button
@@ -188,10 +188,10 @@ export default function Register() {
               </div>
               <div className="flex items-center ">
                 <input
-                onChange={()=>{
-                    setIsAcceptTerms(!isAcceptTerms)
-                }}
-                  checked = {isAcceptTerms}
+                  onChange={() => {
+                    setIsAcceptTerms(!isAcceptTerms);
+                  }}
+                  checked={isAcceptTerms}
                   type="checkbox"
                   name="remember"
                   id="remember"
@@ -206,23 +206,22 @@ export default function Register() {
                 </label>
               </div>
 
-              <button
-              disabled = {isAcceptTerms !== true }
-                type="submit"
-                className="w-full  px-6 py-3 text-lg font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#000000] rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
-              >
-
-                {
-                    isProcessing ?  <div className="flex gap-2 items-center justify-center"  >
-                    <span className="w-6 h-6 border-4 inline-flex border-dashed rounded-full animate-spin border-[#4977EE]"></span>
-                   <span> Processing...</span>
-                    </div> :   <span>
-               Signup
-               </span>
-                }
-               
-             
-              </button>
+              <div className="pt-2">
+                <button
+                  disabled={isAcceptTerms !== true}
+                  type="submit"
+                  className="w-full  px-6 py-3 text-lg font-semibold tracking-wide text-white capitalize transition-colors duration-300 transform bg-[#000000] rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50"
+                >
+                  {isProcessing ? (
+                    <div className="flex gap-2 items-center justify-center">
+                      <span className="w-6 h-6 border-4 inline-flex border-dashed rounded-full animate-spin border-[#4977EE]"></span>
+                      <span> Processing...</span>
+                    </div>
+                  ) : (
+                    <span>Signup</span>
+                  )}
+                </button>
+              </div>
             </form>
 
             <div className="flex items-center justify-between my-4">

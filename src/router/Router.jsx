@@ -4,13 +4,18 @@ import Products from "../pages/ProductPage/Products";
 import Login from "../pages/authentication/Login/Login";
 import Register from "../pages/authentication/Registration/Register";
 import Cart from "../pages/Cart/Cart";
+import Home from "../pages/Home/Home";
 
 
 export const router = createBrowserRouter([
     {
-        path:'/products',
+        path:'/',
         element:<RootLayout/>,
         children:[
+            {
+                path:'/',
+                element:<Home/>
+            },
             {
                 path:'/products',
                 element:<Products/>

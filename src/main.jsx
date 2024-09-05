@@ -1,13 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import ContextProvider from './ContextProvider/ContextProvider.jsx'
+import { RouterProvider } from 'react-router-dom'
+import { router } from './router/Router.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ContextProvider>
-    <App />
+          <RouterProvider router={router} />
     </ContextProvider>
   </StrictMode>,
 )

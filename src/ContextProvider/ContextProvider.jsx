@@ -18,7 +18,10 @@ export default function ContextProvider({ children }) {
   const googleProvider = new GoogleAuthProvider();
   const appleProvider = new OAuthProvider("apple.com");
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [theme,setTheme] = useState("light")
+  const [menu, setMenu] = useState(false);
+  const [dropdown,setDropdown] = useState(false)
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -46,10 +49,10 @@ export default function ContextProvider({ children }) {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        setIsLoading(false);
+        setLoading(false);
       } else {
         setUser(null);
-        setIsLoading(false);
+        setLoading(false);
       }
     });
 
@@ -62,8 +65,14 @@ export default function ContextProvider({ children }) {
 
   const authInfo = {
     user,
-    isLoading,
+    loading,
     setUser,
+    setTheme,
+    theme,
+    menu,
+    setMenu,
+    dropdown,
+    setDropdown,
     createUser,
     signInUser,
     updateUserProfile,

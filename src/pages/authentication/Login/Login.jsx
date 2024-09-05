@@ -12,9 +12,10 @@ import auth from "../../../firebase/firebase.config";
 
 export default function Login() {
   const [showPass, setShowPass] = useState(false);
+  const [getMail, setGetMail] = useState('')
   const [isAcceptTerms, setIsAcceptTerms] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const { googleLogin, appleLogin, signInUser,  } =
+  const { googleLogin, appleLogin, signInUser,  resetPassword  } =
     useContextProvider();
 
   //idp login =============
@@ -23,16 +24,19 @@ export default function Login() {
     const form = e.currentTarget;
     const email = form.email.value;
     const password = form.password.value;
+    
     setIsProcessing(true);
     setIsAcceptTerms(false);
     //sign in user ===
     e.preventDefault();
     signInUser(email, password)
       .then(() => {
+        setIsProcessing(false)
         form.reset();
         toast.success("You're in! Welcome back!");
       })
       .catch(() => {
+        setIsProcessing(false)
         toast.error("invalid password or email");
       });
     
@@ -58,6 +62,28 @@ export default function Login() {
       );
     }
   };
+
+  // handle reset password ==========
+  const handleResetPassword = async() => {
+    if (getMail.length === 0) {
+        toast.error('Please enter your email address first.');
+        return;
+      }
+        try {
+            await resetPassword(getMail)
+            toast.success('Password reset email sent! Check your inbox.')
+        } catch (error) {
+            console.log(error);
+            if (error.code === 'auth/user-not-found') {
+                toast.error('No account found with this email address.');
+              } else if (error.code === 'auth/invalid-email') {
+                toast.error('Please enter a valid email address.');
+              } else  {
+                toast.error('An error occurred. Please try again later.');
+              }
+            
+        }
+  }
 
   return (
     <>
@@ -100,6 +126,7 @@ export default function Login() {
                   Email address
                 </label>
                 <input
+                onChange={(e)=> setGetMail(e.target.value)}
                   id="email"
                   name="email"
                   className="focus:outline-none w-full"
@@ -121,8 +148,6 @@ export default function Login() {
                   className="focus:outline-none w-full"
                   type={showPass ? "text" : "password"}
                   required
-                  pattern=".{6,}"
-                  title="Password must be at least 6 characters long."
                   placeholder="******"
                 />
                 <button
@@ -137,7 +162,11 @@ export default function Login() {
               </div>
 
               <div className="flex justify-end">
-                <button className="text-[#1E99F5] font-medium text-sm ">
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    handleResetPassword()
+
+                }} className="text-[#1E99F5] font-medium text-sm ">
                   Forgot Password
                 </button>
               </div>
@@ -196,7 +225,7 @@ export default function Login() {
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={handleGoogleLogin}
-                className="text-sm  font-medium border px-4 py-3 border-[#D9D9D9] rounded-md"
+                className="text-sm  font-medium border px-4 py-3 border-[#D9D9D9] hover:bg-gray-300/25 duration-300 rounded-md"
               >
                 <span className="inline-flex align-text-bottom text-xl mr-1 ">
                   <FcGoogle />{" "}
@@ -205,7 +234,7 @@ export default function Login() {
               </button>
               <button
                 onClick={handleAppleLogin}
-                className="text-sm font-medium border px-4 py-3 border-[#D9D9D9] rounded-md"
+                className="text-sm font-medium border hover:bg-gray-300/25 duration-300  px-4 py-3 border-[#D9D9D9] rounded-md"
               >
                 <span className="inline-flex align-text-bottom text-xl mr-1">
                   <BsApple />{" "}

@@ -4,6 +4,7 @@ import {
   GoogleAuthProvider,
   OAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -34,6 +35,9 @@ export default function ContextProvider({ children }) {
   const appleLogin = () => {
     return signInWithPopup(auth, appleProvider);
   };
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth,email)
+  }
   const logOut = () => {
     return signOut(auth);
   };
@@ -63,6 +67,7 @@ export default function ContextProvider({ children }) {
     createUser,
     signInUser,
     updateUserProfile,
+    resetPassword,
     googleLogin,
     appleLogin,
     logOut,

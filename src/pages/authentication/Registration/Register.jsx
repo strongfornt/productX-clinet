@@ -241,7 +241,7 @@ export default function Register() {
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={handleGoogleLogin}
-                className="text-sm  font-medium border px-4 py-3 border-[#D9D9D9] rounded-md"
+                className="text-sm  font-medium border px-4 py-3 hover:bg-gray-300/25 duration-300 border-[#D9D9D9] rounded-md"
               >
                 <span className="inline-flex align-text-bottom text-xl mr-1 ">
                   <FcGoogle />{" "}
@@ -250,7 +250,7 @@ export default function Register() {
               </button>
               <button
                 onClick={handleAppleLogin}
-                className="text-sm font-medium border px-4 py-3 border-[#D9D9D9] rounded-md"
+                className="text-sm font-medium border px-4 hover:bg-gray-300/25 duration-300 py-3 border-[#D9D9D9] rounded-md"
               >
                 <span className="inline-flex align-text-bottom text-xl mr-1">
                   <BsApple />{" "}

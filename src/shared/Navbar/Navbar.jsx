@@ -7,8 +7,8 @@ import logo from '../../assets/projectLogo/F.svg'
 import OutsideClickHandler from "react-outside-click-handler";
 import { SiReactrouter } from "react-icons/si";
 
-import { IoIosNotifications, IoMdArrowDropup } from "react-icons/io";
-import { MdBrowserUpdated, MdLogout } from "react-icons/md";
+import {  IoMdArrowDropup } from "react-icons/io";
+import {  MdLogout } from "react-icons/md";
 
 import toast from "react-hot-toast";
 import useContextProvider from "../../useHooks/useContextProvider";
@@ -18,7 +18,7 @@ import { BsBag } from "react-icons/bs";
 export default function Nav() {
   const [scrollY, setScrollY] = useState(0);
 
-  const { user, loading, logOut, theme, setTheme, menu, setMenu } =
+  const { user, loading, logOut, theme,cartItem, menu, setMenu } =
     useContextProvider();
   const location = useLocation();
 
@@ -227,7 +227,7 @@ export default function Nav() {
                 {navLinks}
           </div>
           {/* <div className="navbar-end hidden lg:flex"></div> */}
-          <div className="navbar-end flex-1  ">
+          <div className="navbar-end flex-1  "> 
             <Link to='/cart'
               className={` ${
                 location.pathname === "/" && scrollY < 199
@@ -237,7 +237,7 @@ export default function Nav() {
             >
               <BsBag />
               <p className=" absolute left-3 top-3 bg-black  w-3 h-3 flex items-center justify-center text-[8px] text-white  rounded-full " >
-          <span> 0 </span>
+          <span> {cartItem?.length} </span>
         </p>
        
             </Link>

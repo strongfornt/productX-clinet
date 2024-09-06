@@ -1,7 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import ItemCart from "./ItemCart";
+import useContextProvider from "../../useHooks/useContextProvider";
+import { calculateTotalPrice } from "../../lib/calculateTotalPrice";
+
 
 export default function Cart() {
+   const {cartItem} = useContextProvider();
+  const totalPrice = calculateTotalPrice(cartItem);
+    
+
   return (
     <>
       <Helmet>
@@ -24,7 +31,15 @@ export default function Cart() {
           </h1>
 
         {/* cart goes here ==================== */}
-            <ItemCart/>
+        <div className="mt-5" >
+        {
+            cartItem ?.map((item, idx) => (
+                <ItemCart key={idx} item={item}  />
+            ))
+             
+           }
+        </div>
+        
         </section>
 
         {/* section 2 =========== */}
@@ -41,7 +56,7 @@ export default function Cart() {
                             <span>
                                 Subtotal
                                 </span>
-                                <span className="font-medium">€1071.00</span>
+                                <span className="font-medium">€{totalPrice}</span>
                     </div>
 
                     {/* shipping ====== */}
@@ -63,7 +78,7 @@ export default function Cart() {
                             <span>
                                 Total
                                 </span>
-                                <span className=" text-[#0E0E0E]" >€1000</span>
+                                <span className=" text-[#0E0E0E]" >€{totalPrice}</span>
                     </div>
             </div>
 

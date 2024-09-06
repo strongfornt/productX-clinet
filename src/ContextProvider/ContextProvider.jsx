@@ -22,6 +22,7 @@ export default function ContextProvider({ children }) {
   const [theme,setTheme] = useState("light")
   const [menu, setMenu] = useState(false);
   const [dropdown,setDropdown] = useState(false)
+  const [productsData, setProductsData] = useState([]);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -44,6 +45,13 @@ export default function ContextProvider({ children }) {
   const logOut = () => {
     return signOut(auth);
   };
+
+  const getProducts = async() => {
+        const res = await fetch('/products.json');
+        const data = await res.json();
+        setProductsData(data)
+
+  }
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -79,6 +87,8 @@ export default function ContextProvider({ children }) {
     resetPassword,
     googleLogin,
     appleLogin,
+    getProducts,
+    productsData,
     logOut,
   };
   return (

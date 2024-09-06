@@ -1,7 +1,21 @@
 import { Helmet } from "react-helmet-async";
 import ProductsCard from "./ProductsCard";
+import useContextProvider from "../../useHooks/useContextProvider";
+import { useEffect } from "react";
 
 export default function Products() {
+
+ const {getProducts, productsData} = useContextProvider();
+
+ useEffect(()=> {
+    getProducts();
+
+ }, []);
+
+ console.log(productsData);
+ 
+
+
   return (
     <>
       <Helmet>
@@ -28,9 +42,12 @@ export default function Products() {
         {/* categories side ================= */}
         {/* product side ============ */}
         <div className=" grid md:grid-cols-2  lg:grid-cols-3 gap-4">
-          <ProductsCard />
-          <ProductsCard />
-          <ProductsCard />
+            {
+                productsData?.map((product, idx) => (
+                    <ProductsCard  key={idx} product={product}  />
+                ) )
+            }
+         
         </div>
         {/* product side ============ */}
       </main>

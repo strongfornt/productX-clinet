@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "picture": "https://example.com/rocking-chair1.jpg",
+      "picture": "https://images.vexels.com/content/147957/preview/adirondack-rocking-chair-29058e.png",
       "name": "Wooden Rocking Chair",
       "current_price": 120,
       "old_price": 150,
@@ -12,7 +12,7 @@
     },
     {
       "id": 2,
-      "picture": "https://example.com/side-chair1.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7cuIwN-JvTIEngeH_NI5u2nhX4tNxGwvFEA&s",
       "name": "Dining Side Chair",
       "current_price": 75,
       "old_price": 100,
@@ -23,7 +23,7 @@
     },
     {
       "id": 3,
-      "picture": "https://example.com/lounge-chair1.jpg",
+      "picture": "https://img.freepik.com/free-vector/beige-soft-leather-armchair-with-wooden-legs_107791-29744.jpg",
       "name": "Leather Lounge Chair",
       "current_price": 200,
       "old_price": 250,
@@ -34,7 +34,7 @@
     },
     {
       "id": 4,
-      "picture": "https://example.com/rocking-chair2.jpg",
+      "picture": "https://img.freepik.com/premium-photo/metal-rocking-chair-white-background-white-clear-surface-png-transparent-background_94628-45936.jpg",
       "name": "Metal Rocking Chair",
       "current_price": 140,
       "old_price": 180,
@@ -45,8 +45,8 @@
     },
     {
       "id": 5,
-      "picture": "https://example.com/side-chair2.jpg",
-      "name": "Contemporary Side Chair",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD0a6lgIMRUsOCAgukzHCVriVewb0bhvsmiA&s",
+      "name": "Contemporary Chair",
       "current_price": 85,
       "old_price": 110,
       "percent_off": 23,
@@ -56,7 +56,7 @@
     },
     {
       "id": 6,
-      "picture": "https://example.com/lounge-chair2.jpg",
+      "picture": "https://cdn.prod.website-files.com/5d2aaa7886b66be97abd2fbc/5d3618a7b9f50f4004669442_Green%20Emerald%20Arm%20Chairs.jpg",
       "name": "Velvet Lounge Chair",
       "current_price": 210,
       "old_price": 270,
@@ -67,7 +67,7 @@
     },
     {
       "id": 7,
-      "picture": "https://example.com/rocking-chair3.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-k5HretDtzepBnoKaATE4w7tjEKg58hNcQ&s",
       "name": "Outdoor Rocking Chair",
       "current_price": 130,
       "old_price": 170,
@@ -78,8 +78,8 @@
     },
     {
       "id": 8,
-      "picture": "https://example.com/side-chair3.jpg",
-      "name": "Scandinavian Side Chair",
+      "picture": "https://i.etsystatic.com/24438113/r/il/92f142/2841189607/il_fullxfull.2841189607_24gf.jpg",
+      "name": "Scandinavian Chair",
       "current_price": 95,
       "old_price": 120,
       "percent_off": 21,
@@ -89,7 +89,7 @@
     },
     {
       "id": 9,
-      "picture": "https://example.com/lounge-chair3.jpg",
+      "picture": "https://www.pendlevillagefurniture.co.uk/cdn/shop/files/KY471HENLEYRECLINERCHAIRGREYCUTOUT_2.jpg?v=1702564844",
       "name": "Reclining Lounge Chair",
       "current_price": 220,
       "old_price": 280,
@@ -100,7 +100,7 @@
     },
     {
       "id": 10,
-      "picture": "https://example.com/rocking-chair4.jpg",
+      "picture": "https://img.freepik.com/premium-vector/wooden-rocking-chair-furniture-symbol-illustration-vector_201904-1394.jpg",
       "name": "Antique Rocking Chair",
       "current_price": 160,
       "old_price": 200,
@@ -111,7 +111,7 @@
     },
     {
       "id": 11,
-      "picture": "https://example.com/side-chair4.jpg",
+      "picture": "https://www.creativefabrica.com/wp-content/uploads/2023/05/31/Wooden-Chair-Crafts-70977089-1-1-580x386.png",
       "name": "Wooden Side Chair",
       "current_price": 80,
       "old_price": 100,
@@ -122,7 +122,7 @@
     },
     {
       "id": 12,
-      "picture": "https://example.com/lounge-chair4.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUuqYNUDdz8PKj1Ew3LcIWLk9xmsVtgFyWBQ&s",
       "name": "Modern Lounge Chair",
       "current_price": 230,
       "old_price": 290,
@@ -133,8 +133,8 @@
     },
     {
       "id": 13,
-      "picture": "https://example.com/rocking-chair5.jpg",
-      "name": "Contemporary Rocking Chair",
+      "picture": "https://www.lenleys.co.uk/wp-content/uploads/2021/10/836.jpg",
+      "name": "Contemporary Chair",
       "current_price": 145,
       "old_price": 190,
       "percent_off": 24,
@@ -144,7 +144,7 @@
     },
     {
       "id": 14,
-      "picture": "https://example.com/side-chair5.jpg",
+      "picture": "https://i0.wp.com/sefbuy.com/wp-content/uploads/2020/03/1-47.jpg?fit=600%2C600&ssl=1",
       "name": "Plastic Side Chair",
       "current_price": 65,
       "old_price": 90,
@@ -155,7 +155,7 @@
     },
     {
       "id": 15,
-      "picture": "https://example.com/lounge-chair5.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUh3plUnhB9jc5HkcdPylHTi2K-3fgOIxzEw&s",
       "name": "Outdoor Lounge Chair",
       "current_price": 250,
       "old_price": 320,
@@ -166,7 +166,7 @@
     },
     {
       "id": 16,
-      "picture": "https://example.com/rocking-chair6.jpg",
+      "picture": "https://fntiquellc.com/cdn/shop/products/il_fullxfull.1907526041_gnj4.jpg?v=1604264694",
       "name": "Classic Rocking Chair",
       "current_price": 135,
       "old_price": 180,
@@ -177,7 +177,7 @@
     },
     {
       "id": 17,
-      "picture": "https://example.com/side-chair6.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ufUrDBUx2suowvrun4f5I2Ab0qLCLat4Uw&s",
       "name": "Elegant Side Chair",
       "current_price": 90,
       "old_price": 115,
@@ -188,7 +188,7 @@
     },
     {
       "id": 18,
-      "picture": "https://example.com/lounge-chair6.jpg",
+      "picture": "https://www.pendlevillagefurniture.co.uk/cdn/shop/files/Muscat-Faux-Leather-Swivel-Recliner-Chair-and-Footstool-Cinder-Plush-001.webp?v=1708345032",
       "name": "Leather Recliner Chair",
       "current_price": 280,
       "old_price": 350,
@@ -199,7 +199,7 @@
     },
     {
       "id": 19,
-      "picture": "https://example.com/rocking-chair7.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMLH3EYzSU9JTIduSi_wmysAHU1Em0CURRyQ&s",
       "name": "Modern Rocking Chair",
       "current_price": 150,
       "old_price": 195,
@@ -210,7 +210,7 @@
     },
     {
       "id": 20,
-      "picture": "https://example.com/side-chair7.jpg",
+      "picture": "https://cdn.designtoscano.com/product_images/english-chippendale-side-chair-1-af1007/60e353bff4410a520a8fe609/zoom.jpg?c=1681492202",
       "name": "Vintage Side Chair",
       "current_price": 95,
       "old_price": 125,
@@ -221,7 +221,7 @@
     },
     {
       "id": 21,
-      "picture": "https://example.com/lounge-chair7.jpg",
+      "picture": "https://kisabethfurniture.com/cdn/shop/products/Anson-38548.jpg?v=1650889790",
       "name": "Comfort Lounge Chair",
       "current_price": 240,
       "old_price": 300,
@@ -232,8 +232,8 @@
     },
     {
       "id": 22,
-      "picture": "https://example.com/rocking-chair8.jpg",
-      "name": "Minimalist Rocking Chair",
+      "picture": "https://zoli99.com/22281-home_default/velvet-rocking-chair-mama.jpg",
+      "name": "Minimalist Chair",
       "current_price": 125,
       "old_price": 160,
       "percent_off": 22,
@@ -243,7 +243,7 @@
     },
     {
       "id": 23,
-      "picture": "https://example.com/side-chair8.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBDyUGhGOIn0zTg2eI2eYU3qikkDcJp9s9sQ&s",
       "name": "Metal Side Chair",
       "current_price": 70,
       "old_price": 90,
@@ -254,7 +254,7 @@
     },
     {
       "id": 24,
-      "picture": "https://example.com/lounge-chair8.jpg",
+      "picture": "https://moderatefurniture.com/cdn/shop/files/altek_Armadillo_loungechair_009n_550x_cf3935d2-a9dc-4dfc-995b-b45aeb03e876.jpg?v=1722857338",
       "name": "Executive Lounge Chair",
       "current_price": 300,
       "old_price": 380,
@@ -265,7 +265,7 @@
     },
     {
       "id": 25,
-      "picture": "https://example.com/rocking-chair9.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzV307mwWT7L8C83yw876DP6fCY5o6QO34pw&s",
       "name": "Child Rocking Chair",
       "current_price": 100,
       "old_price": 130,
@@ -276,7 +276,7 @@
     },
     {
       "id": 26,
-      "picture": "https://example.com/side-chair9.jpg",
+      "picture": "https://www.stagedrop.com/resize/images/nps/NPS-950.jpg?bw=1000&bh=1000",
       "name": "Compact Side Chair",
       "current_price": 65,
       "old_price": 85,
@@ -287,7 +287,7 @@
     },
     {
       "id": 27,
-      "picture": "https://example.com/lounge-chair9.jpg",
+      "picture": "https://houseofshopping.co.uk/cdn/shop/files/51pj3UXEXqL.jpg?v=1711432601",
       "name": "Swivel Lounge Chair",
       "current_price": 260,
       "old_price": 340,
@@ -298,7 +298,7 @@
     },
     {
       "id": 28,
-      "picture": "https://example.com/rocking-chair10.jpg",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE5y8yUhotM3UZX6V3594Mz9YvdyBoWQHE8x4sR2I3JYIikTW23Xs6Vj8dj9Zag9bDU-I&usqp=CAU",
       "name": "Vintage Rocking Chair",
       "current_price": 175,
       "old_price": 220,
@@ -309,7 +309,7 @@
     },
     {
       "id": 29,
-      "picture": "https://example.com/side-chair10.jpg",
+      "picture": "https://www.restaurantfurnitureplus.com/cdn/shop/products/726ARBLK-600x600_164x.jpg?v=1677618539&width=164",
       "name": "Outdoor Side Chair",
       "current_price": 80,
       "old_price": 110,
@@ -320,8 +320,8 @@
     },
     {
       "id": 30,
-      "picture": "https://example.com/lounge-chair10.jpg",
-      "name": "Ergonomic Lounge Chair",
+      "picture": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx7paN-g-HyTuv_xAT1MsKqC5wmjG1P_u72Q&s",
+      "name": "Ergonomic Chair",
       "current_price": 275,
       "old_price": 350,
       "percent_off": 21,

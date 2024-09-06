@@ -20,6 +20,7 @@ export default function Pagination({
 
   return (
     <>
+
       <div className="mb-6 mt-6 flex items-center  justify-center">
         <nav
           aria-label="Pagination"

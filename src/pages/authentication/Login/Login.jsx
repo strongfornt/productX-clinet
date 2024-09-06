@@ -2,8 +2,8 @@
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 import chair from "../../../assets/authenticationPic/chairMain.png";
 import logo from "../../../assets/projectLogo/F.svg";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
 import useContextProvider from "../../../useHooks/useContextProvider";
@@ -11,11 +11,13 @@ import toast from "react-hot-toast";
 import auth from "../../../firebase/firebase.config";
 
 export default function Login() {
+    const location = useLocation();
+    const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [getMail, setGetMail] = useState('')
   const [isAcceptTerms, setIsAcceptTerms] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const { googleLogin, appleLogin, signInUser,  resetPassword  } =
+  const { googleLogin, appleLogin, signInUser, user,  resetPassword  } =
     useContextProvider();
 
   //idp login =============
@@ -84,6 +86,16 @@ export default function Login() {
             
         }
   }
+
+  useEffect(() => {
+    if (user) {
+     if(location.state){
+        navigate(location.state);
+     }else{
+        navigate('/')
+     }
+    }
+  }, [location.state, navigate, user]);
 
   return (
     <>

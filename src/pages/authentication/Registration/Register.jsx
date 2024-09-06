@@ -2,8 +2,8 @@
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 import chair from "../../../assets/authenticationPic/chairMain.png";
 import logo from "../../../assets/projectLogo/F.svg";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsApple } from "react-icons/bs";
 import useContextProvider from "../../../useHooks/useContextProvider";
@@ -11,19 +11,29 @@ import toast from "react-hot-toast";
 import auth from "../../../firebase/firebase.config";
 
 export default function Register() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [isAcceptTerms, setIsAcceptTerms] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-  const { googleLogin, appleLogin, setUser, createUser, updateUserProfile } =
-    useContextProvider();
+  const {
+    googleLogin,
+    appleLogin,
+    setUser,
+    createUser,
+    updateUserProfile,
+    user,
+  } = useContextProvider();
 
   //idp login =============
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const name = form.firstname.value + " " + form.lastname.value;
+    const first = form.firstname.value;
+    const last = form.lastname.value;
     const email = form.email.value;
     const password = form.password.value;
+    const name = first || last || (first && last) ? `${first} ${last}` : null;
     setIsProcessing(true);
     setIsAcceptTerms(false);
     //creating user ====
@@ -69,6 +79,16 @@ export default function Register() {
       );
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      if (location.state) {
+        navigate(location.state);
+      } else {
+        navigate("/");
+      }
+    }
+  }, [location.state, navigate, user]);
 
   return (
     <>

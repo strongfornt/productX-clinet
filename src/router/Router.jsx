@@ -5,6 +5,7 @@ import Login from "../pages/authentication/Login/Login";
 import Register from "../pages/authentication/Registration/Register";
 import Cart from "../pages/Cart/Cart";
 import Home from "../pages/Home/Home";
+import Protected from "./protected/ProtectedRoute";
 
 
 export const router = createBrowserRouter([
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/cart',
-                element:<Cart/>
+                element:<Protected><Cart/></Protected>
             }
         ]
 

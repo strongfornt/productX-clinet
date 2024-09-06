@@ -75,8 +75,12 @@ export default function ItemCart({ item }) {
           <p className="font-bold text-xs md:text-sm min-w-fit  ">{name}</p>
           <div className="min-w-fit md:hidden flex flex-row-reverse items-baseline justify-between ">
             <div className="py-1 px-2 md:px-4 rounded-sm border min-w-fit  text-lg font-semibold ">
-              <button className="text-[#5C5C5C]">-</button> 1{" "}
-              <button className="text-[#5C5C5C]">+</button>{" "}
+              <button
+              onClick={() => handleDecreaseQuantity(id)}
+              className="text-[#5C5C5C]">-</button> 1{" "}
+              <button 
+               onClick={() => handleIncreaseQuantity(id)}
+              className="text-[#5C5C5C]">+</button>{" "}
             </div>
             <p className="text-[#343434] text-sm md:text-lg font-bold">
               €{current_price}

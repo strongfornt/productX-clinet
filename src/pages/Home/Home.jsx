@@ -1,7 +1,16 @@
+import Faq from "./Faq/Faq";
+import Banner from "./HomeElements/Banner";
 
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <>
+        <section>
+            <Banner/>
+        </section>
+        <section>
+            <Faq/>
+        </section>
+    </>
   )
 }

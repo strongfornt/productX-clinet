@@ -2,11 +2,13 @@ import { Helmet } from "react-helmet-async";
 import ProductsCard from "./ProductsCard";
 import useContextProvider from "../../useHooks/useContextProvider";
 import { useEffect, useState } from "react";
-import Pagination from "./Pagination";
 import { cartManage } from "../../lib/cartmanage";
+import PaginationTwo from "./PaginationTwo";
+import toast from "react-hot-toast";
+
 
 export default function Products() {
-  const { getProducts, productsData, cartItem, setCartItem } =
+  const { getProducts, productsData, user, cartItem, setCartItem } =
     useContextProvider();
   const [category, setCategory] = useState("Rocking Chair");
   const [currentPage, setCurrentPage] = useState(1);
@@ -37,6 +39,11 @@ export default function Products() {
 
   // handle cart item added / remove ==========
   const handleCartItem = (id) => {
+    if(!user){
+        toast.error('Access Denied! Please log in to add items.')
+        return
+        
+    }
     const isExistCartItem = cartItem.find((item) => item.id === id);
     const wantedItem = productsData.find((item) => item.id === id);
     cartManage(isExistCartItem, cartItem, id, wantedItem, setCartItem)
@@ -102,15 +109,17 @@ export default function Products() {
           {/* 
           pagination =============== */}
           <div className="mb-10 mt-5">
-            <Pagination
+            {/* <Pagination
               setCurrentPage={setCurrentPage}
               totalPages={totalPages}
               currentPage={currentPage}
-            />
+            /> */}
+             <PaginationTwo currentPage={currentPage} total={totalPages} setCurrentPage={setCurrentPage} />
           </div>
         </div>
         {/* product side ============ */}
       </main>
+     
     </>
   );
 }

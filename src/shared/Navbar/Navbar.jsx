@@ -3,22 +3,23 @@ import { Link, NavLink } from "react-router-dom/dist";
 
 import profile from "./../../assets/projectLogo/deFaultProfile1.png";
 import { useLocation } from "react-router-dom";
-import logo from '../../assets/projectLogo/F.svg'
+import logo from "../../assets/projectLogo/F.svg";
 import OutsideClickHandler from "react-outside-click-handler";
 import { SiReactrouter } from "react-icons/si";
 
-import {  IoMdArrowDropup } from "react-icons/io";
-import {  MdLogout } from "react-icons/md";
+import { IoMdArrowDropup } from "react-icons/io";
+import { MdLogout } from "react-icons/md";
 
 import toast from "react-hot-toast";
 import useContextProvider from "../../useHooks/useContextProvider";
 import { calculateScrollbarWidth } from "./Scrollbar";
 import { BsBag } from "react-icons/bs";
+import { RiLoginCircleLine } from "react-icons/ri";
 
 export default function Nav() {
   const [scrollY, setScrollY] = useState(0);
 
-  const { user, loading, logOut, theme,cartItem, menu, setMenu } =
+  const { user, loading, logOut, theme, cartItem, menu, setMenu } =
     useContextProvider();
   const location = useLocation();
 
@@ -96,8 +97,6 @@ export default function Nav() {
       >
         <p className="">Blog</p>
       </button>
-
-     
     </>
   );
 
@@ -132,55 +131,20 @@ export default function Nav() {
       >
         <p className="">Products</p>
       </NavLink>
-      <button
-        onClick={() => {
-          setMenu(false);
-        }}
-        
-        className={({ isActive }) =>
-          isActive
-            ? ` text-[#3F72AF] w-fit text-sm font-medium  `
-            : `text-sm w-fit  ${
-                location.pathname === "/" && scrollY < 199 && "text-white"
-              } font-medium hover:text-[#3F72AF] duration-300 `
-        }
-      >
-        <p className="">Categories</p>
+      <button className={`${location.pathname === '/' && scrollY < 199 && 'text-white'} text-sm font-medium`} >
+        Categories
       </button>
-      <button
-        onClick={() => {
-          setMenu(false);
-        }}
-        
-        className={({ isActive }) =>
-          isActive
-            ? ` text-[#3F72AF] w-fit text-sm font-medium  `
-            : `text-sm w-fit  ${
-                location.pathname === "/" && scrollY < 199 && "text-white"
-              } font-medium hover:text-[#3F72AF] duration-300 `
-        }
-      >
-        <p className="">Custom</p>
+      <button className={`${location.pathname === '/' && scrollY < 199 && 'text-white'} text-sm font-medium`} >
+        Custom
       </button>
-      <button
-        onClick={() => {
-          setMenu(false);
-        }}
-        
-        className={({ isActive }) =>
-          isActive
-            ? ` text-[#3F72AF] w-fit text-sm font-medium  `
-            : `text-sm w-fit  ${
-                location.pathname === "/" && scrollY < 199 && "text-white"
-              } font-medium hover:text-[#3F72AF] duration-300 `
-        }
-      >
-        <p className="">Blog</p>
+      <button className={`${location.pathname === '/' && scrollY < 199 && 'text-white'} text-sm font-medium`} >
+        Blog
       </button>
-      
-      
+     
     </>
   );
+
+  
 
   return (
     <>
@@ -201,11 +165,10 @@ export default function Nav() {
           }`}
         >
           <div className="navbar-start w-fit ">
-            <div className="bg-[#1E99F5] w-fit inline-flex p-2 rounded-full" >
-                <img className="w-4 md:w-16 lg:w-12"  src={logo} alt="" />
+            <div className="bg-[#1E99F5] w-fit inline-flex p-2 rounded-full">
+              <img className="w-4 md:w-16 lg:w-12" src={logo} alt="" />
             </div>
             <a className=" ml-1 text-2xl font-bold  text-[#1E99F5] ">
-             
               <span
                 className={`font-bold ${
                   theme === "light"
@@ -223,12 +186,13 @@ export default function Nav() {
             </a>
           </div>
 
-          <div className="menu  justify-center menu-horizontal px-1 py-0 h-16 md:gap-8 hidden  md:flex items-center w-full" >
-                {navLinks}
+          <div className="menu  justify-center menu-horizontal px-1 py-0 h-16 md:gap-8 hidden  md:flex items-center w-full">
+            {navLinks}
           </div>
           {/* <div className="navbar-end hidden lg:flex"></div> */}
-          <div className="navbar-end flex-1  "> 
-            <Link to='/cart'
+          <div className="navbar-end flex-1  ">
+            <Link
+              to="/cart"
               className={` ${
                 location.pathname === "/" && scrollY < 199
                   ? "text-white"
@@ -236,11 +200,19 @@ export default function Nav() {
               } font-medium hover:text-[#3F72AF] mr-4 relative   duration-300  text-xl `}
             >
               <BsBag />
-              <p className=" absolute left-3 top-3 bg-black  w-3 h-3 flex items-center justify-center text-[8px] text-white  rounded-full " >
-          <span> {cartItem?.length} </span>
-        </p>
-       
+              <p className=" absolute left-3 top-3 bg-black  w-3 h-3 flex items-center justify-center text-[8px] text-white  rounded-full ">
+                <span> {cartItem?.length} </span>
+              </p>
             </Link>
+             {
+              !user &&  <div className="tooltip hidden md:flex  tooltip-left" data-tip="Sign In" >
+              <Link to='/login' >
+              <button className="font-bold  flex items-end   text-2xl"  >
+          <RiLoginCircleLine />
+          </button>
+              </Link>
+            </div>
+             }
 
             {/* responsive menu start */}
             <OutsideClickHandler onOutsideClick={() => setMenu(false)}>
@@ -407,10 +379,8 @@ export default function Nav() {
               </ul>
             </OutsideClickHandler>
             {/* responsive menu end    */}
-        
+
             <ul className="menu menu-horizontal px-1 py-0 h-16 md:gap-8 hidden  md:flex items-center ">
-              
-           
               {loading ? (
                 <div className=" md:flex hidden  items-center gap-1">
                   <div
@@ -440,7 +410,7 @@ export default function Nav() {
                     </button>
 
                     <ul
-                      className="h-fit -translate-y-44 -translate-x-28   group-hover:translate-y-[6.7rem]  transition-transform duration-500
+                      className="h-fit -translate-y-44 -translate-x-28   group-hover:translate-y-[5.5rem]  transition-transform duration-500
              w-40 px-4 py-4   bg-black text-white  absolute left-0 bottom-0"
                     >
                       <IoMdArrowDropup className="text-black text-4xl absolute translate-x-24  -translate-y-[2.3rem] " />
@@ -448,34 +418,11 @@ export default function Nav() {
                         {user && (
                           <>
                             <h1 className=" text-sm">
-                              {user?.displayName || "Anonymous"}
+                           
+                           
+                              {user?.displayName ? user?.displayName : "Anonymous"}
                             </h1>
-                            <NavLink
-                              onClick={() => {
-                                setMenu(false);
-                              }}
-                              to="/dashboard"
-                              className={({ isActive }) =>
-                                isActive
-                                  ? ` text-[#3F72AF] w-fit text-sm   `
-                                  : `text-sm w-fit ${
-                                      location.pathname === "/" &&
-                                      scrollY < 199 &&
-                                      "text-white"
-                                    }   hover:text-[#3F72AF] duration-300 `
-                              }
-                            >
-                              <p className="flex items-center gap-1">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 512 512"
-                                  className="w-5 h-5 fill-current dark:text-gray-600"
-                                >
-                                  <path d="M68.983,382.642l171.35,98.928a32.082,32.082,0,0,0,32,0l171.352-98.929a32.093,32.093,0,0,0,16-27.713V157.071a32.092,32.092,0,0,0-16-27.713L272.334,30.429a32.086,32.086,0,0,0-32,0L68.983,129.358a32.09,32.09,0,0,0-16,27.713V354.929A32.09,32.09,0,0,0,68.983,382.642ZM272.333,67.38l155.351,89.691V334.449L272.333,246.642ZM256.282,274.327l157.155,88.828-157.1,90.7L99.179,363.125ZM84.983,157.071,240.333,67.38v179.2L84.983,334.39Z"></path>
-                                </svg>
-                                Dashboard
-                              </p>
-                            </NavLink>
+
                             <button
                               onClick={handleLogout}
                               className="flex items-center text-sm gap-1"

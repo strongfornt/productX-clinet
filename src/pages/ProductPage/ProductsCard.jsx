@@ -9,11 +9,11 @@ export default function ProductsCard({product, handleCartItem}) {
 
   return (
     <>
-      <div className="max-w-xs p-2 md:p-4 xl:p-6 rounded-md shadow-md bg-gray-900 dark:bg-gray-50 text-gray-50 dark:text-gray-900">
+      <div className="  max-w-xs p-2  md:p-4 xl:p-6 rounded-md shadow-md border border-[#F1F1F1]  text-gray-50 dark:text-gray-900">
         <img
           src={picture}
           alt=""
-          className="object-cover bg-no-repeat object-center md:h-64 w-full rounded-md  bg-[#F2F2F2]"
+          className="object-cover bg-no-repeat object-center   md:h-64 w-full rounded-md  bg-[#F2F2F2]"
         />
         <div className="mt-3 ">
           <h2 className="text-base md:text-lg text-[#343434]  font-semibold tracking-wide">

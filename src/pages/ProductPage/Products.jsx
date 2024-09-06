@@ -60,7 +60,7 @@ export default function Products() {
         *
       </div>
 
-      <main className=" mt-16 px-2 md:px-4 lg:px-6 flex gap-4 md:gap-6  lg:gap-10  xl:gap-16 ">
+      <main className=" mt-16 px-2 md:px-4 lg:px-6 flex justify-between md:justify-normal md:gap-6  lg:gap-10  xl:gap-16 ">
         {/* categories side ================= */}
         <aside className="flex flex-col min-w-fit gap-2 border border-[#E8E8E8] p-3  pl-1 rounded-sm ">
           <button
@@ -97,7 +97,7 @@ export default function Products() {
         {/* categories side ================= */}
         {/* product side ============ */}
         <div>
-          <div className=" grid md:grid-cols-2  lg:grid-cols-3 gap-4">
+          <div className=" grid  md:grid-cols-2  lg:grid-cols-3 gap-4">
             {currentProducts?.map((product, idx) => (
               <ProductsCard
                 key={idx}

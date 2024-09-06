@@ -3,15 +3,18 @@ import ProductsCard from "./ProductsCard";
 import useContextProvider from "../../useHooks/useContextProvider";
 import { useEffect, useState } from "react";
 import Pagination from "./Pagination";
+import { cartManage } from "../../lib/cartmanage";
 
 export default function Products() {
-  const { getProducts, productsData } = useContextProvider();
+  const { getProducts, productsData, cartItem, setCartItem } =
+    useContextProvider();
   const [category, setCategory] = useState("Rocking Chair");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
 
   useEffect(() => {
     getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //filtered products by category ==========
@@ -32,6 +35,14 @@ export default function Products() {
   // Calculate the total number of pages
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
+  // handle cart item added / remove ==========
+  const handleCartItem = (id) => {
+    const isExistCartItem = cartItem.find((item) => item.id === id);
+    const wantedItem = productsData.find((item) => item.id === id);
+    cartManage(isExistCartItem, cartItem, id, wantedItem, setCartItem)
+  };
+
+
   return (
     <>
       <Helmet>
@@ -42,7 +53,7 @@ export default function Products() {
         *
       </div>
 
-      <main className=" mt-16 px-2 md:px-4 lg:px-8 flex gap-4 md:gap-6  lg:gap-10  xl:gap-16 ">
+      <main className=" mt-16 px-2 md:px-4 lg:px-6 flex gap-4 md:gap-6  lg:gap-10  xl:gap-16 ">
         {/* categories side ================= */}
         <aside className="flex flex-col min-w-fit gap-2 border border-[#E8E8E8] p-3  pl-1 rounded-sm ">
           <button
@@ -81,7 +92,11 @@ export default function Products() {
         <div>
           <div className=" grid md:grid-cols-2  lg:grid-cols-3 gap-4">
             {currentProducts?.map((product, idx) => (
-              <ProductsCard key={idx} product={product} />
+              <ProductsCard
+                key={idx}
+                product={product}
+                handleCartItem={handleCartItem}
+              />
             ))}
           </div>
           {/* 

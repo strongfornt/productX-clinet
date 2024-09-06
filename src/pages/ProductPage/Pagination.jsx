@@ -20,32 +20,6 @@ export default function Pagination({
 
   return (
     <>
-      {/* Pagination Controls */}
-      {/* <div className="pagination">
-      <button
-        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
-
-      {[...Array(totalPages).keys()].map(number => (
-        <button
-          key={number + 1}
-          onClick={() => setCurrentPage(number + 1)}
-          className={currentPage === number + 1 ? "active" : ""}
-        >
-          {number + 1}
-        </button>
-      ))}
-
-      <button
-        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
-    </div> */}
       <div className="mb-6 mt-6 flex items-center  justify-center">
         <nav
           aria-label="Pagination"

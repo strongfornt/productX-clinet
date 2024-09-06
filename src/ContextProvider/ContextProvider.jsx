@@ -23,6 +23,7 @@ export default function ContextProvider({ children }) {
   const [menu, setMenu] = useState(false);
   const [dropdown,setDropdown] = useState(false)
   const [productsData, setProductsData] = useState([]);
+  const [cartItem, setCartItem] = useState([]);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -89,6 +90,8 @@ export default function ContextProvider({ children }) {
     appleLogin,
     getProducts,
     productsData,
+    cartItem,
+    setCartItem,
     logOut,
   };
   return (

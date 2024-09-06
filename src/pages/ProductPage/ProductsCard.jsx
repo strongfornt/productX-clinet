@@ -2,9 +2,9 @@
 import { BsBag } from "react-icons/bs";
 
 
-export default function ProductsCard({product}) {
+export default function ProductsCard({product, handleCartItem}) {
 
-    const {picture, name, current_price, old_price, percent_off, description} = product || {}
+    const {id,picture, name, current_price, old_price, percent_off, description} = product || {}
 
 
   return (
@@ -38,7 +38,9 @@ export default function ProductsCard({product}) {
        </div>
 
         <div className="mt-3">
-          <button className="bg-[#202020] flex items-center justify-center gap-2 w-full text-white py-1 text-base font-semibold rounded-md hover:bg-gray-800 duration-300 ">
+          <button 
+            onClick={() => handleCartItem(id) }
+          className="bg-[#202020] flex items-center justify-center gap-2 w-full text-white py-1 text-base font-semibold rounded-md hover:bg-gray-800 duration-300 ">
             <span className=" font-bold text-lg ">
               <BsBag />
             </span>{" "}

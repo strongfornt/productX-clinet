@@ -9,6 +9,7 @@ import { BsApple } from "react-icons/bs";
 import useContextProvider from "../../../useHooks/useContextProvider";
 import toast from "react-hot-toast";
 import auth from "../../../firebase/firebase.config";
+import { Helmet } from "react-helmet-async";
 
 export default function Register() {
   const location = useLocation();
@@ -92,6 +93,9 @@ export default function Register() {
 
   return (
     <>
+    <Helmet>
+        <title>Sign Un | FurniFlex</title>
+    </Helmet>
       <div className="flex min-h-screen flex-row-reverse  overflow-hidden p-3 lg:p-0   ">
         <div
           className="hidden bg-center bg-cover  bg-no-repeat lg:block flex-1"

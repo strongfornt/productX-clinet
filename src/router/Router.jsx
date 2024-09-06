@@ -7,6 +7,7 @@ import Cart from "../pages/Cart/Cart";
 import Home from "../pages/Home/Home";
 import Protected from "./protected/ProtectedRoute";
 import Error from "../pages/Error/Error";
+import CheckoutPage from "../pages/CheckoutPage/CheckoutPage";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path:'/cart',
                 element:<Protected><Cart/></Protected>
+            },
+            {
+                path:'/checkout',
+                element:<Protected><CheckoutPage/></Protected>
             }
         ]
 

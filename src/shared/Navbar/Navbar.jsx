@@ -19,7 +19,7 @@ import { RiLoginCircleLine } from "react-icons/ri";
 export default function Nav() {
   const [scrollY, setScrollY] = useState(0);
 
-  const { user, loading, logOut, theme, cartItem, menu, setMenu } =
+  const { user, loading, logOut, theme, cartItem, menu, setMenu, setCartItem } =
     useContextProvider();
   const location = useLocation();
 
@@ -37,6 +37,7 @@ export default function Nav() {
   const handleLogout = () => {
     logOut().then(() => {
       toast("See you soon!");
+      setCartItem([])
     });
   };
 

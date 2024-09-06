@@ -24,6 +24,7 @@ export default function ContextProvider({ children }) {
   const [dropdown,setDropdown] = useState(false)
   const [productsData, setProductsData] = useState([]);
   const [cartItem, setCartItem] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -92,6 +93,8 @@ export default function ContextProvider({ children }) {
     productsData,
     cartItem,
     setCartItem,
+    totalPrice,
+    setTotalPrice,
     logOut,
   };
   return (

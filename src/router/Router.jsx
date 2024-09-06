@@ -6,12 +6,14 @@ import Register from "../pages/authentication/Registration/Register";
 import Cart from "../pages/Cart/Cart";
 import Home from "../pages/Home/Home";
 import Protected from "./protected/ProtectedRoute";
+import Error from "../pages/Error/Error";
 
 
 export const router = createBrowserRouter([
     {
         path:'/',
         element:<RootLayout/>,
+        errorElement:<Error/>,
         children:[
             {
                 path:'/',

@@ -46,7 +46,7 @@ export default function Faq() {
                     theme === "light" && "text-[#4b5664]"
                   }`}
                 >
-                  Once your order is shipped, you'll receive a tracking number via email. You can use this number to track your shipment&apos;s progress on our website or through the carrier’s tracking system.
+                  Once your order is shipped, you&apos;ll receive a tracking number via email. You can use this number to track your shipment&apos;s progress on our website or through the carrier’s tracking system.
                 </p>
               </details>
               <details className="w-full border rounded-lg">

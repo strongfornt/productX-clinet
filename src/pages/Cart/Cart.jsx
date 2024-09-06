@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import ItemCart from "./ItemCart";
 import useContextProvider from "../../useHooks/useContextProvider";
 import { calculateTotalPrice } from "../../lib/calculateTotalPrice";
+import NotFoundData from "../../components/NotFoundData/NotFoundData";
 
 
 export default function Cart() {
@@ -33,9 +34,9 @@ export default function Cart() {
         {/* cart goes here ==================== */}
         <div className="mt-5" >
         {
-            cartItem ?.map((item, idx) => (
+            cartItem.length ?  cartItem ?.map((item, idx) => (
                 <ItemCart key={idx} item={item}  />
-            ))
+            )) : <NotFoundData/>
              
            }
         </div>
